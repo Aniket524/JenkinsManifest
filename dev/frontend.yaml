@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name:  frontend
-        image: aniket524/final-application:2
+        image: aniket524/final-application:3
         ports:
         - containerPort:  3000
 
