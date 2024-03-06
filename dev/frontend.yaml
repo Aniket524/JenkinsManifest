@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name:  frontend
-        image: aniket524/privateimage:47
+        image: aniket524/privateimage:48
         ports:
         - containerPort:  3000
       imagePullSecrets:
