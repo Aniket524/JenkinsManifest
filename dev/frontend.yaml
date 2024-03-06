@@ -1,3 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dockerhub-secret
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJpbmRleC5kb2NrZXIuaW8iOnsidXNlcm5hbWUiOiJhbmlrZXQ1MjQiLCJwYXNzd29yZCI6IlBhc3NANzU4OCIsImVtYWlsIjoiYW5pa2V0a2FycDUyNEBnbWFpbC5jb20ifX19
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,9 +25,11 @@ spec:
     spec:
       containers:
       - name:  frontend
-        image: aniket524/app:47
+        image: aniket524/privateimage:47
         ports:
         - containerPort:  3000
+      imagePullSecrets:
+      - name: dockerhub-secret
 
 ---
 
@@ -34,5 +45,7 @@ spec:
   - protocol: TCP
     port: 3000
     targetPort: 3000
+
+
 
 
