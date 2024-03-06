@@ -30,7 +30,7 @@ spec:
         - containerPort:  3000
       imagePullSecrets:
       - name: dockerhub-secret
-
+      
 ---
 
 apiVersion: v1
